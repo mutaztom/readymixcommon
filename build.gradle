@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+group 'com.rationalteamteam'
+version '1.0'
+def MASTERLIB=properties.get("masterlib")
+repositories {
+    flatDir { dirs("$MASTERLIB") }
+    maven {
+        credentials {
+            username 'admin'
+            password 'mezo@rational4archiva'
+        }
+        url "http://localhost:8888/repository/internal/"
+
+    }
+    mavenLocal()
+    mavenCentral()
+}
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+uploadArchives {
+    repositories {
+        flatDir {
+            dir('artifacts')
+        }
+        repositories {
+            mavenDeployer {
+                repository(url: "http://localhost:8888/repository/internal/") {
+                    authentication(userName: "admin", password: "mezo@rational4archiva")
+                    pom.groupId = 'com.rationalteam'
+                    pom.artifactId = 'readymixcommon'
+                    pom.version = project.version
+                }
+
+            }
+        }
+    }
+}
+uploadArchives.dependsOn build
