@@ -5,8 +5,9 @@
 package com.rationalteam.reaymixcommon;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 
 /**
@@ -16,20 +17,21 @@ public class News implements Serializable {
     protected String title;
     protected String details;
     protected String ondate;
-    private LocalDate date = LocalDate.now();
+    private Calendar date = GregorianCalendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public News() {
-        ondate = date.format(DateTimeFormatter.ISO_DATE);
+        ondate =sdf.format(date.getTime());
     }
 
     public News(String t) {
-        ondate = date.format(DateTimeFormatter.ISO_DATE);
+        ondate =sdf.format(date.getTime());
         title = t;
     }
 
     public News(String t, String det) {
         {
-            ondate = date.format(DateTimeFormatter.ISO_DATE);
+            ondate = sdf.format(date.getTime());
             title = t;
             details = det;
         }

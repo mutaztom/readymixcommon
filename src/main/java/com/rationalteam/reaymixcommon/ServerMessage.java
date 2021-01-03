@@ -1,6 +1,8 @@
 package com.rationalteam.reaymixcommon;
 
-public class ServerMessage {
+import java.io.Serializable;
+
+public class ServerMessage implements Serializable {
     String message;
     String details;
 

@@ -1,6 +1,8 @@
 package com.rationalteam.reaymixcommon;
 
-public class ClientOrder {
+import java.io.Serializable;
+
+public class ClientOrder implements Serializable {
     private String clientid;
     private String location;
     private String country;
@@ -20,7 +22,7 @@ public class ClientOrder {
     private String member;
     private Integer id;
     private String status;
-
+    private String mobile;
     public ClientOrder() {
         unitprice = 0D;
         usdprice = 0D;
@@ -160,5 +162,13 @@ public class ClientOrder {
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

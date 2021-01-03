@@ -1,9 +1,11 @@
 package com.rationalteam.reaymixcommon;
 
+import java.io.Serializable;
+
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
  */
-public class MobileUser {
+public class MobileUser implements Serializable {
     private Integer id;
     private String username;
     private String item;
