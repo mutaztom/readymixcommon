@@ -17,6 +17,7 @@ public class News implements Serializable {
     protected String title;
     protected String details;
     protected String ondate;
+	protected Integer clientid;
     private Calendar date = GregorianCalendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -109,5 +110,6 @@ public class News implements Serializable {
     public String toString() {
         return Objects.isNull(title) ? "Null" : title;
     }
-
+public void setClientid(Integer cid){clientid=cid;}
+public Integer getClientid(){return clientid;}
 }

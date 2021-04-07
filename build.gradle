@@ -6,6 +6,10 @@ plugins {
 group 'com.rationalteamteam'
 version '1.0'
 def MASTERLIB=properties.get("masterlib")
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 repositories {
     flatDir { dirs("$MASTERLIB") }
     maven {

@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class ClientService implements Serializable {
     Integer id;
     String item;
+	String code;
+    String aritem;
     String describtion;
     String unit;
     Double unitprice=0.0;
@@ -57,4 +59,14 @@ public class ClientService implements Serializable {
     public void setSupplier(String supplier) {
         this.supplier = supplier;
     }
+
+    public String getAritem() {
+        return aritem;
+    }
+
+    public void setAritem(String aritem) {
+        this.aritem = aritem;
+    }
+	public String getCode(){return code;}
+	public void setCode(String cod){code=cod;}
 }
